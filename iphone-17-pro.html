@@ -449,6 +449,11 @@
             font-weight: 700;
             color: #FFFFFF;
             line-height: 1;
+            transition: transform 0.15s ease-out;
+        }
+
+        .cashback-banner-amount.animating {
+            transform: scale(1.05);
         }
 
         .cashback-banner-sublabel {
@@ -977,16 +982,53 @@
             });
         });
 
+        // Animated number counter
+        let currentCashback = 0;
+
+        function animateNumber(element, start, end, duration) {
+            const startTime = performance.now();
+            const difference = end - start;
+
+            // Add animating class for scale effect
+            element.classList.add('animating');
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function for smooth animation
+                const easeOutQuad = progress * (2 - progress);
+                const current = start + (difference * easeOutQuad);
+
+                element.textContent = `$${current.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    // Remove animating class when done
+                    setTimeout(() => {
+                        element.classList.remove('animating');
+                    }, 150);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
         // Update price
         function updatePrice() {
             const storageOption = document.querySelector('.storage-option.selected');
             const storagePrice = parseInt(storageOption.dataset.price);
             const totalPrice = basePrice + storagePrice;
-            const cashback = (totalPrice * 0.05).toFixed(2);
+            const cashback = parseFloat((totalPrice * 0.05).toFixed(2));
 
             document.getElementById('totalPrice').textContent = `$${totalPrice.toLocaleString()}`;
             document.getElementById('addToCartBtn').textContent = `Add to cart for $${totalPrice.toLocaleString()}`;
-            document.getElementById('cashbackAmount').textContent = `$${parseFloat(cashback).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            // Animate the cashback amount
+            const cashbackElement = document.getElementById('cashbackAmount');
+            animateNumber(cashbackElement, currentCashback, cashback, 600);
+            currentCashback = cashback;
         }
 
         // Click to advance carousel
@@ -1050,6 +1092,7 @@
         }
 
         // Initialize price on load
+        currentCashback = (basePrice * 0.05);
         updatePrice();
 
         // Invest checkbox functionality
