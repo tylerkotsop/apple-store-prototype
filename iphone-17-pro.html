@@ -162,6 +162,10 @@
             color: #8E8E93;
         }
 
+        .header-subtitle .amount {
+            color: #34C759;
+        }
+
         .cart-button {
             width: 40px;
             height: 40px;
@@ -171,11 +175,46 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 18px;
+            height: 18px;
+            background: #C02416;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1;
+            animation: cartBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .cart-badge.show {
+            display: flex;
+        }
+
+        @keyframes cartBounce {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         /* Content */
         .content {
-            padding: 0 20px 100px;
+            padding: 0 20px 120px;
         }
 
         /* Cashback Badge */
@@ -382,7 +421,7 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            border: 3px solid transparent;
+            border: 1px solid transparent;
             cursor: pointer;
             transition: all 0.2s;
             position: relative;
@@ -416,7 +455,7 @@
         }
 
         .color-option.selected {
-            border-color: #FFFFFF;
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* Cash Back Banner */
@@ -446,8 +485,8 @@
 
         .cashback-banner-amount {
             font-size: 40px;
-            font-weight: 700;
-            color: #FFFFFF;
+            font-weight: 500;
+            color: #34C759;
             line-height: 1;
         }
 
@@ -647,34 +686,112 @@
             left: 0;
         }
 
-        /* Fixed Add to Cart */
+        /* Liquid Glass Buy Component */
         .cart-footer {
             position: sticky;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, #000000 80%, transparent);
-            padding: 20px;
+            bottom: 20px;
+            padding: 0 20px;
             z-index: 100;
+            display: flex;
+            justify-content: center;
             margin-top: -88px;
+            pointer-events: none;
         }
 
-        .add-to-cart {
+        .cart-footer > * {
+            pointer-events: auto;
+        }
+
+        .liquid-glass-container {
             width: 100%;
-            height: auto;
-            padding: 16px 24px;
+            height: 62px;
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(60px) saturate(200%) brightness(120%);
+            -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(120%);
+            border: 0.5px solid rgba(255, 255, 255, 0.18);
+            border-radius: 31px;
+            padding: 8px 8px 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .liquid-glass-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+            margin-left: 10px;
+        }
+
+        .product-thumbnail {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .product-thumbnail img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .product-info-title {
+            font-family: 'Wealthsimple Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #FFFFFF;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-info-details {
+            font-family: 'Wealthsimple Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .buy-button {
+            width: 124px;
+            height: 32px;
+            padding: 0;
             background: #FFFFFF;
             border: none;
-            border-radius: 100px;
+            border-radius: 16px;
             font-family: 'Wealthsimple Sans', sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             color: #000000;
             cursor: pointer;
             transition: background 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
         }
 
-        .add-to-cart:active {
+        .buy-button:active {
             background: rgba(255, 255, 255, 0.9);
         }
     </style>
@@ -712,13 +829,14 @@
             <div class="header-center">
                 <img src="Apple logo.svg" alt="Apple" class="apple-logo">
                 <div class="header-title">iPhone <span class="header-title-variant">17 Pro</span></div>
-                <div class="header-subtitle">Cash back: $227.56</div>
+                <div class="header-subtitle">Cash back: <span class="amount">$227.56</span></div>
             </div>
 
-            <div class="cart-button">
+            <div class="cart-button" id="cartButton">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M9 2L7 6H3L6 20H18L21 6H17L15 2H9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+                <div class="cart-badge" id="cartBadge">1</div>
             </div>
         </div>
 
@@ -881,9 +999,20 @@
             </div>
         </div>
 
-        <!-- Fixed Cart Footer -->
+        <!-- Liquid Glass Buy Component -->
         <div class="cart-footer">
-            <button class="add-to-cart" id="addToCartBtn">Add to cart for $1,599</button>
+            <div class="liquid-glass-container">
+                <div class="liquid-glass-left">
+                    <div class="product-thumbnail">
+                        <img src="iphone_17pro_orange.png" alt="iPhone" id="thumbnailImage">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-info-title" id="productInfoTitle">iPhone 17 Pro</div>
+                        <div class="product-info-details" id="productInfoDetails">256GB • Cosmic orange</div>
+                    </div>
+                </div>
+                <button class="buy-button" id="buyButton">Buy for $1,599</button>
+            </div>
         </div>
     </div>
 
@@ -892,7 +1021,16 @@
         let currentSlide = 0;
         let selectedModel = 'pro';
         let selectedStorage = 256;
+        let selectedColor = 'orange';
+        let selectedColorName = 'Cosmic orange';
         let basePrice = 1599;
+
+        // Color image mapping
+        const colorImages = {
+            'orange': 'iphone_17pro_orange.png',
+            'silver': 'iphone_17pro_silver.png',
+            'blue': 'iphone_17pro_blue.png'
+        };
 
         // Carousel functionality
         const carouselTrack = document.getElementById('carouselTrack');
@@ -918,9 +1056,15 @@
                 colorOptions.forEach(opt => opt.classList.remove('selected'));
                 colorOptions[index].classList.add('selected');
 
+                // Update color state
+                selectedColor = colorOptions[index].dataset.color;
+                selectedColorName = colorOptions[index].dataset.colorName;
+
                 // Update color title
-                const colorName = colorOptions[index].dataset.colorName;
-                document.getElementById('colorName').textContent = colorName;
+                document.getElementById('colorName').textContent = selectedColorName;
+
+                // Update liquid glass component
+                updateLiquidGlass();
             });
         });
 
@@ -933,9 +1077,15 @@
                 const index = parseInt(option.dataset.index);
                 updateCarousel(index);
 
+                // Update color state
+                selectedColor = option.dataset.color;
+                selectedColorName = option.dataset.colorName;
+
                 // Update color title
-                const colorName = option.dataset.colorName;
-                document.getElementById('colorName').textContent = colorName;
+                document.getElementById('colorName').textContent = selectedColorName;
+
+                // Update liquid glass component
+                updateLiquidGlass();
             });
         });
 
@@ -988,9 +1138,12 @@
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
 
-                // Gentle easing function for very smooth animation
-                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                const current = start + (difference * easeOutCubic);
+                // Very smooth ease-in-out for wheel-like effect
+                const easeInOutQuart = progress < 0.5
+                    ? 8 * progress * progress * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 4) / 2;
+
+                const current = start + (difference * easeInOutQuart);
 
                 element.textContent = `$${current.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
@@ -1002,20 +1155,57 @@
             requestAnimationFrame(update);
         }
 
+        // Update liquid glass component
+        function updateLiquidGlass() {
+            const storageOption = document.querySelector('.storage-option.selected');
+            const storagePrice = parseInt(storageOption.dataset.price);
+            const totalPrice = basePrice + storagePrice;
+
+            // Update thumbnail image
+            document.getElementById('thumbnailImage').src = colorImages[selectedColor];
+
+            // Update product title
+            const modelName = selectedModel === 'promax' ? 'iPhone 17 Pro Max' : 'iPhone 17 Pro';
+            document.getElementById('productInfoTitle').textContent = modelName;
+
+            // Format storage display (show TB for 1024 and 2048)
+            let storageDisplay;
+            if (selectedStorage === 1024) {
+                storageDisplay = '1TB';
+            } else if (selectedStorage === 2048) {
+                storageDisplay = '2TB';
+            } else {
+                storageDisplay = `${selectedStorage}GB`;
+            }
+
+            // Update details (storage and color)
+            document.getElementById('productInfoDetails').textContent = `${storageDisplay} • ${selectedColorName}`;
+
+            // Update buy button price
+            document.getElementById('buyButton').textContent = `Buy for $${totalPrice.toLocaleString()}`;
+        }
+
         // Update price
         function updatePrice() {
             const storageOption = document.querySelector('.storage-option.selected');
             const storagePrice = parseInt(storageOption.dataset.price);
             const totalPrice = basePrice + storagePrice;
-            const cashback = parseFloat((totalPrice * 0.05).toFixed(2));
+
+            // Calculate cash back based on amount charged to card after applying available cash back
+            const availableCashback = 227.56;
+            const totalWithTax = totalPrice * 1.13;
+            const amountChargedToCard = Math.max(0, totalWithTax - availableCashback);
+            const cashback = parseFloat((amountChargedToCard * 0.05).toFixed(2));
 
             document.getElementById('totalPrice').textContent = `$${totalPrice.toLocaleString()}`;
-            document.getElementById('addToCartBtn').textContent = `Add to cart for $${totalPrice.toLocaleString()}`;
 
             // Animate the cashback amount
             const cashbackElement = document.getElementById('cashbackAmount');
-            animateNumber(cashbackElement, currentCashback, cashback, 800);
+            animateNumber(cashbackElement, currentCashback, cashback, 1800);
             currentCashback = cashback;
+
+            // Update liquid glass component
+            updateLiquidGlass();
         }
 
         // Click to advance carousel
@@ -1027,9 +1217,15 @@
                 colorOptions.forEach(opt => opt.classList.remove('selected'));
                 colorOptions[currentSlide].classList.add('selected');
 
+                // Update color state
+                selectedColor = colorOptions[currentSlide].dataset.color;
+                selectedColorName = colorOptions[currentSlide].dataset.colorName;
+
                 // Update color title
-                const colorName = colorOptions[currentSlide].dataset.colorName;
-                document.getElementById('colorName').textContent = colorName;
+                document.getElementById('colorName').textContent = selectedColorName;
+
+                // Update liquid glass component
+                updateLiquidGlass();
             }
         });
 
@@ -1062,9 +1258,15 @@
                 colorOptions.forEach(opt => opt.classList.remove('selected'));
                 colorOptions[currentSlide].classList.add('selected');
 
+                // Update color state
+                selectedColor = colorOptions[currentSlide].dataset.color;
+                selectedColorName = colorOptions[currentSlide].dataset.colorName;
+
                 // Update color title
-                const colorName = colorOptions[currentSlide].dataset.colorName;
-                document.getElementById('colorName').textContent = colorName;
+                document.getElementById('colorName').textContent = selectedColorName;
+
+                // Update liquid glass component
+                updateLiquidGlass();
             } else if (touchEndX - touchStartX > 50 && currentSlide > 0) {
                 // Swipe right
                 currentSlide--;
@@ -1072,14 +1274,23 @@
                 colorOptions.forEach(opt => opt.classList.remove('selected'));
                 colorOptions[currentSlide].classList.add('selected');
 
+                // Update color state
+                selectedColor = colorOptions[currentSlide].dataset.color;
+                selectedColorName = colorOptions[currentSlide].dataset.colorName;
+
                 // Update color title
-                const colorName = colorOptions[currentSlide].dataset.colorName;
-                document.getElementById('colorName').textContent = colorName;
+                document.getElementById('colorName').textContent = selectedColorName;
+
+                // Update liquid glass component
+                updateLiquidGlass();
             }
         }
 
         // Initialize price on load
-        currentCashback = (basePrice * 0.05);
+        const availableCashback = 227.56;
+        const initialTotalWithTax = basePrice * 1.13;
+        const initialAmountChargedToCard = Math.max(0, initialTotalWithTax - availableCashback);
+        currentCashback = parseFloat((initialAmountChargedToCard * 0.05).toFixed(2));
         updatePrice();
 
         // Invest checkbox functionality
@@ -1094,6 +1305,76 @@
             } else {
                 investCheckbox.classList.remove('checked');
             }
+        });
+
+        // Buy button functionality
+        const buyButton = document.getElementById('buyButton');
+        const cartBadge = document.getElementById('cartBadge');
+        const cartButton = document.getElementById('cartButton');
+
+        // Initialize cart badge on page load
+        function updateCartBadge() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+            if (cartItems.length > 0) {
+                cartBadge.textContent = cartItems.length;
+                cartBadge.classList.add('show');
+            } else {
+                cartBadge.classList.remove('show');
+            }
+        }
+
+        // Update badge on page load
+        updateCartBadge();
+
+        buyButton.addEventListener('click', () => {
+            const storageOption = document.querySelector('.storage-option.selected');
+            const storagePrice = parseInt(storageOption.dataset.price);
+            const totalPrice = basePrice + storagePrice;
+
+            // Calculate cash back based on amount charged to card after applying available cash back
+            const availableCashback = 227.56;
+            const totalWithTax = totalPrice * 1.13;
+            const amountChargedToCard = Math.max(0, totalWithTax - availableCashback);
+            const cashback = parseFloat((amountChargedToCard * 0.05).toFixed(2));
+
+            // Format storage display
+            let storageDisplay;
+            if (selectedStorage === 1024) {
+                storageDisplay = '1TB';
+            } else if (selectedStorage === 2048) {
+                storageDisplay = '2TB';
+            } else {
+                storageDisplay = `${selectedStorage}GB`;
+            }
+
+            // Create cart data
+            const cartData = {
+                productImage: colorImages[selectedColor],
+                productName: selectedModel === 'promax' ? 'iPhone 17 Pro Max' : 'iPhone 17 Pro',
+                productSpecs: `${storageDisplay} • ${selectedColorName}`,
+                storage: selectedStorage,
+                price: totalPrice,
+                cashback: cashback
+            };
+
+            // Get existing cart items and add new item
+            let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+            cartItems.push(cartData);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Update cart badge
+            cartBadge.textContent = cartItems.length;
+            cartBadge.classList.add('show');
+
+            // Navigate to cart after animation
+            setTimeout(() => {
+                window.location.href = 'cart.html';
+            }, 600);
+        });
+
+        // Cart button click - go to cart
+        cartButton.addEventListener('click', () => {
+            window.location.href = 'cart.html';
         });
     </script>
 </body>
