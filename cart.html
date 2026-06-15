@@ -198,7 +198,7 @@
         }
 
         .header-subtitle .amount {
-            color: #34C759;
+            color: #6DC382;
         }
 
         .cart-button {
@@ -353,6 +353,10 @@
         .total-row .cost-value {
             font-size: 17px;
             font-weight: 700;
+        }
+
+        .total-row + .cost-row {
+            margin-top: 16px;
         }
 
         /* Fixed Footer */
@@ -557,13 +561,13 @@
                         <div class="cost-label">HST (13%)</div>
                         <div class="cost-value" id="costHST">$207.87</div>
                     </div>
-                    <div class="cost-row">
-                        <div class="cost-label" style="color: #34C759;">You'll earn</div>
-                        <div class="cost-value" style="color: #34C759;" id="cartCashback">+$79.95 cash back</div>
-                    </div>
                     <div class="cost-row total-row">
                         <div class="cost-label">Total</div>
                         <div class="cost-value" id="costTotal">$1,806.87</div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-label" style="color: #6DC382;">You'll earn</div>
+                        <div class="cost-value" style="color: #6DC382;" id="cartCashback">+$79.95 cash back</div>
                     </div>
                 </div>
             </div>
@@ -571,7 +575,7 @@
 
         <!-- Fixed Footer -->
         <div class="cart-footer">
-            <a href="checkout.html" class="checkout-button" id="checkoutButton">Continue to checkout</a>
+            <a href="checkout.html" class="checkout-button" id="checkoutButton">Checkout</a>
             <a href="index.html" class="secondary-button" id="secondaryButton">Keep shopping</a>
         </div>
     </div>
@@ -620,7 +624,7 @@
                 phoneContainer.classList.remove('empty-cart');
 
                 // Update buttons for filled cart
-                checkoutButton.textContent = 'Continue to checkout';
+                checkoutButton.textContent = 'Checkout';
                 checkoutButton.href = 'checkout.html';
                 secondaryButton.classList.remove('hidden');
 
