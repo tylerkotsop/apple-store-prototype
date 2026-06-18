@@ -133,7 +133,7 @@
             top: -37px;
             left: 0;
             right: 0;
-            height: 100px;
+            height: 150px;
             background: linear-gradient(to bottom,
                 rgba(0, 0, 0, 1) 0%,
                 rgba(0, 0, 0, 0.95) 40%,
@@ -271,6 +271,7 @@
         /* Hero Section */
         .hero-section {
             padding: 24px 20px 32px;
+            margin-top: 50px;
         }
 
         .hero-text {
@@ -349,7 +350,7 @@
             width: 100%;
             height: 287px;
             background: #0F0F0F;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: none;
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 16px;
@@ -495,14 +496,38 @@
 
         .value-prop-card {
             width: 100%;
-            background: #0F0F0F;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(77, 76, 76, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 12px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
+            position: relative;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .value-prop-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0) 100%);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
         .value-prop-icon {
@@ -510,10 +535,14 @@
             height: 16px;
             flex-shrink: 0;
             margin-top: 2px;
+            position: relative;
+            z-index: 1;
         }
 
         .value-prop-content {
             flex: 1;
+            position: relative;
+            z-index: 1;
         }
 
         .value-prop-title {
@@ -581,8 +610,8 @@
             </div>
 
             <div class="cart-button" onclick="window.location.href='cart.html'">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 2L7 6H3L6 20H18L21 6H17L15 2H9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="20" height="18" viewBox="0 0 20 18" fill="none">
+                    <path d="M15.3789 16.25V18H4.24413V16.25H15.3789ZM13.2842 0.0537465C13.6686 -0.0999353 14.1049 0.0872056 14.2588 0.471714L16.0703 5.00003H17.8731C18.9592 5.0003 19.7829 5.9797 19.5967 7.04983L18.0889 15.7217L18.0352 15.9639C17.7159 17.1548 16.6323 18 15.3789 18V16.25C15.8651 16.25 16.281 15.8999 16.3643 15.4209L17.8731 6.75002H1.74998L3.25877 15.4209C3.34208 15.8999 3.75795 16.25 4.24413 16.25V18L3.9951 17.9893C2.84904 17.886 1.88582 17.0753 1.58787 15.9639L1.53416 15.7217L0.0263471 7.04983C-0.148153 6.04654 0.564936 5.12342 1.54979 5.01174L1.74998 5.00003H3.55467L5.3662 0.471714L6.75878 1.02738L5.16991 5.00003H14.4551L12.8662 1.02835C12.7126 0.643843 12.8997 0.207543 13.2842 0.0537465ZM5.3662 0.471714C5.52 0.0872083 5.95628 -0.0999083 6.34081 0.0537465C6.725 0.207429 6.91177 0.643076 6.75878 1.02738L5.3662 0.471714Z" fill="white"/>
                 </svg>
                 <div class="cart-badge" id="cartBadge">1</div>
             </div>
