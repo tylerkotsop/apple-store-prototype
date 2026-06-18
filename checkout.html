@@ -921,7 +921,7 @@
                 <div class="section-title">Payment</div>
 
                 <!-- Original UX -->
-                <div class="payment-section-original" id="originalPaymentUX" style="display: none;">
+                <div class="payment-section-original" id="originalPaymentUX">
                     <!-- Cash back Card -->
                     <div class="payment-card" id="cashbackCard">
                         <div class="payment-header">
@@ -992,7 +992,7 @@
                 </div>
 
                 <!-- Variant C -->
-                <div class="payment-section-variant-c" id="variantCPaymentUX">
+                <div class="payment-section-variant-c" id="variantCPaymentUX" style="display: none;">
                     <!-- Cash back Card -->
                     <div class="payment-card" id="cashbackCardVariantC">
                     <div class="payment-header">
@@ -1067,7 +1067,7 @@
                 </div>
 
                 <!-- Cash Back Banner - Variant A -->
-                <div class="cashback-banner" id="cashbackBannerVariantA" style="display: none;">
+                <div class="cashback-banner" id="cashbackBannerVariantA">
                     <div class="cashback-banner-content">
                         <div class="cashback-pill"><span>5% cash back</span></div>
                         <div class="cashback-banner-label">You'll earn</div>
@@ -1087,7 +1087,7 @@
                 </div>
 
                 <!-- Cash Back Banner - Variant C -->
-                <div class="cashback-banner" id="cashbackBannerVariantC">
+                <div class="cashback-banner" id="cashbackBannerVariantC" style="display: none;">
                     <div class="cashback-banner-content">
                         <div class="cashback-pill"><span>5% cash back</span></div>
                         <div class="cashback-banner-label">You'll earn</div>
@@ -1346,9 +1346,9 @@
 
     <!-- UX Toggle Tab -->
     <div class="ux-toggle-tab">
-        <button class="ux-toggle-button" id="originalButton">Variant A</button>
+        <button class="ux-toggle-button active" id="originalButton">Variant A</button>
         <button class="ux-toggle-button" id="suggestedButton">Variant B</button>
-        <button class="ux-toggle-button active" id="variantCButton">Variant C</button>
+        <button class="ux-toggle-button" id="variantCButton">Variant C</button>
     </div>
 
     <script>
