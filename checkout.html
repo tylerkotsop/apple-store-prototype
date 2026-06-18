@@ -921,43 +921,38 @@
                 <div class="section-title">Payment</div>
 
                 <!-- Original UX -->
-                <div class="payment-section-original" id="originalPaymentUX">
+                <div class="payment-section-original" id="originalPaymentUX" style="display: none;">
                     <!-- Cash back Card -->
                     <div class="payment-card" id="cashbackCard">
-                    <div class="payment-header">
-                        <div class="payment-label">Cash back applied</div>
-                        <div class="payment-amount highlight" id="cashbackUsed">$227.56</div>
-                    </div>
+                        <div class="payment-header">
+                            <div class="payment-label">Cash back applied</div>
+                            <div class="payment-amount highlight" id="cashbackUsed">-$227.56</div>
+                        </div>
 
-                    <div class="slider-container">
-                        <div class="slider-label">Apply a custom cash back amount</div>
-                        <input type="range" min="0" max="100" value="100" class="slider" id="cashbackSlider">
-                    </div>
-
-                    <div class="toggle-container">
-                        <div class="toggle-label">Pay total with Wealthsimple credit card</div>
-                        <div class="toggle-switch" id="cardOnlyToggle">
-                            <div class="toggle-circle">
-                                <svg class="toggle-checkmark" viewBox="0 0 14 14" fill="none">
-                                    <path d="M2 7L5.5 10.5L12 4" stroke="#6DC382" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                        <div class="toggle-container">
+                            <div class="toggle-label">Pay total with Wealthsimple credit card</div>
+                            <div class="toggle-switch" id="cardOnlyToggle">
+                                <div class="toggle-circle">
+                                    <svg class="toggle-checkmark" viewBox="0 0 14 14" fill="none">
+                                        <path d="M2 7L5.5 10.5L12 4" stroke="#6DC382" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Credit Card -->
-                <div class="payment-card">
-                    <div class="payment-header">
-                        <div class="payment-label">
-                            <img src="Visa Infinite Privilege.png" alt="Visa" class="card-icon">
-                            Card ending in 5180
+                    <!-- Credit Card -->
+                    <div class="payment-card">
+                        <div class="payment-header">
+                            <div class="payment-label">
+                                <img src="Visa Infinite Privilege.png" alt="Visa" class="card-icon">
+                                Card ending in 5180
+                            </div>
+                            <div class="payment-amount" id="cardCharged">$1,579.31</div>
                         </div>
-                        <div class="payment-amount" id="cardCharged">$1,726.92</div>
-                    </div>
-                    <div style="padding: 12px; background: rgba(52, 199, 89, 0.1); border-radius: 8px; margin-top: 20px;">
-                        <div style="font-size: 13px; color: #6DC382; font-weight: 500;">You'll earn <span id="cardCashbackEarned">+$79.95</span> cash back</div>
-                    </div>
+                        <div style="padding: 12px; background: rgba(52, 199, 89, 0.1); border-radius: 8px; margin-top: 20px;">
+                            <div style="font-size: 13px; color: #6DC382; font-weight: 500;">You'll earn <span id="cardCashbackEarned">+$79.95</span> cash back</div>
+                        </div>
                     </div>
 
                     <div class="legal-disclaimer">*5% cash back applies to amount charged to your card.</div>
@@ -997,38 +992,43 @@
                 </div>
 
                 <!-- Variant C -->
-                <div class="payment-section-variant-c" id="variantCPaymentUX" style="display: none;">
+                <div class="payment-section-variant-c" id="variantCPaymentUX">
                     <!-- Cash back Card -->
                     <div class="payment-card" id="cashbackCardVariantC">
-                        <div class="payment-header">
-                            <div class="payment-label">Cash back applied</div>
-                            <div class="payment-amount highlight" id="cashbackUsedVariantC">-$227.56</div>
-                        </div>
+                    <div class="payment-header">
+                        <div class="payment-label">Cash back applied</div>
+                        <div class="payment-amount highlight" id="cashbackUsedVariantC">$227.56</div>
+                    </div>
 
-                        <div class="toggle-container">
-                            <div class="toggle-label">Pay total with Wealthsimple credit card</div>
-                            <div class="toggle-switch" id="cardOnlyToggleVariantC">
-                                <div class="toggle-circle">
-                                    <svg class="toggle-checkmark" viewBox="0 0 14 14" fill="none">
-                                        <path d="M2 7L5.5 10.5L12 4" stroke="#6DC382" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
+                    <div class="slider-container">
+                        <div class="slider-label">Apply a custom cash back amount</div>
+                        <input type="range" min="0" max="100" value="100" class="slider" id="cashbackSliderVariantC">
+                    </div>
+
+                    <div class="toggle-container">
+                        <div class="toggle-label">Pay total with Wealthsimple credit card</div>
+                        <div class="toggle-switch" id="cardOnlyToggleVariantC">
+                            <div class="toggle-circle">
+                                <svg class="toggle-checkmark" viewBox="0 0 14 14" fill="none">
+                                    <path d="M2 7L5.5 10.5L12 4" stroke="#6DC382" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Credit Card -->
-                    <div class="payment-card">
-                        <div class="payment-header">
-                            <div class="payment-label">
-                                <img src="Visa Infinite Privilege.png" alt="Visa" class="card-icon">
-                                Card ending in 5180
-                            </div>
-                            <div class="payment-amount" id="cardChargedVariantC">$1,579.31</div>
+                <!-- Credit Card -->
+                <div class="payment-card">
+                    <div class="payment-header">
+                        <div class="payment-label">
+                            <img src="Visa Infinite Privilege.png" alt="Visa" class="card-icon">
+                            Card ending in 5180
                         </div>
-                        <div style="padding: 12px; background: rgba(52, 199, 89, 0.1); border-radius: 8px; margin-top: 20px;">
-                            <div style="font-size: 13px; color: #6DC382; font-weight: 500;">You'll earn <span id="cardCashbackEarnedVariantC">+$79.95</span> cash back</div>
-                        </div>
+                        <div class="payment-amount" id="cardChargedVariantC">$1,726.92</div>
+                    </div>
+                    <div style="padding: 12px; background: rgba(52, 199, 89, 0.1); border-radius: 8px; margin-top: 20px;">
+                        <div style="font-size: 13px; color: #6DC382; font-weight: 500;">You'll earn <span id="cardCashbackEarnedVariantC">+$79.95</span> cash back</div>
+                    </div>
                     </div>
 
                     <div class="legal-disclaimer">*5% cash back applies to amount charged to your card.</div>
@@ -1067,7 +1067,7 @@
                 </div>
 
                 <!-- Cash Back Banner - Variant A -->
-                <div class="cashback-banner" id="cashbackBannerVariantA">
+                <div class="cashback-banner" id="cashbackBannerVariantA" style="display: none;">
                     <div class="cashback-banner-content">
                         <div class="cashback-pill"><span>5% cash back</span></div>
                         <div class="cashback-banner-label">You'll earn</div>
@@ -1087,7 +1087,7 @@
                 </div>
 
                 <!-- Cash Back Banner - Variant C -->
-                <div class="cashback-banner" id="cashbackBannerVariantC" style="display: none;">
+                <div class="cashback-banner" id="cashbackBannerVariantC">
                     <div class="cashback-banner-content">
                         <div class="cashback-pill"><span>5% cash back</span></div>
                         <div class="cashback-banner-label">You'll earn</div>
@@ -1162,8 +1162,7 @@
             document.getElementById('cardCashbackEarnedVariantC').textContent = `+$${initialCashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         }
 
-        // Payment elements
-        const slider = document.getElementById('cashbackSlider');
+        // Payment elements for Variant A (toggle-only, no slider)
         const cashbackUsedEl = document.getElementById('cashbackUsed');
         const cardChargedEl = document.getElementById('cardCharged');
         const cardOnlyToggle = document.getElementById('cardOnlyToggle');
@@ -1172,82 +1171,9 @@
         let isCardOnlyMode = false;
 
         function updatePaymentSplit() {
-            let cashbackUsed, cashbackDisplay, cardCharged, cashbackEarned;
-
-            if (isCardOnlyMode) {
-                // Card only mode: no cashback used, full amount on card
-                cashbackUsed = 0;
-                cashbackDisplay = availableCashback; // Still show available amount
-                cardCharged = total;
-                cashbackEarned = total * 0.05; // Earn 5% on full amount
-            } else {
-                // Normal mode: apply cashback slider
-                const percentage = slider.value / 100;
-                cashbackUsed = availableCashback * percentage;
-                cashbackDisplay = cashbackUsed;
-                cardCharged = total - cashbackUsed;
-                cashbackEarned = cardCharged * 0.05; // Earn 5% on card charged amount
-            }
-
-            const cashbackDisplayText = cashbackUsed === 0 ? `$${cashbackDisplay.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `-$${cashbackDisplay.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            cashbackUsedEl.textContent = cashbackDisplayText;
-            cardChargedEl.textContent = `$${cardCharged.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-            // Update card cashback earned banner
-            document.getElementById('cardCashbackEarned').textContent = `+$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-            // Update cashback banner for Variant A
-            document.getElementById('cashbackBannerAmountVariantA').textContent = `$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-            // Update summary section
-            const cashbackAppliedText = cashbackUsed === 0 ? `$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `-$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            document.getElementById('cashbackApplied').textContent = cashbackAppliedText;
-            document.getElementById('summaryCardCharged').textContent = `$${cardCharged.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-            // Hide/show cash back applied row based on mode or slider value
-            const cashbackAppliedRow = document.getElementById('cashbackAppliedRow');
-            if (cashbackUsed === 0) {
-                cashbackAppliedRow.style.display = 'none';
-            } else {
-                cashbackAppliedRow.style.display = 'flex';
-            }
-
-            // Update slider track
-            slider.style.setProperty('--slider-percent', `${slider.value}%`);
-        }
-
-        // Slider event
-        slider.addEventListener('input', updatePaymentSplit);
-
-        // Toggle functionality
-        cardOnlyToggle.addEventListener('click', () => {
-            isCardOnlyMode = !isCardOnlyMode;
-
-            if (isCardOnlyMode) {
-                cardOnlyToggle.classList.add('active');
-                cashbackCard.classList.add('disabled');
-                slider.disabled = true;
-            } else {
-                cardOnlyToggle.classList.remove('active');
-                cashbackCard.classList.remove('disabled');
-                slider.disabled = false;
-            }
-
-            updatePaymentSplit();
-        });
-
-        // Initialize
-        updatePaymentSplit();
-
-        // Variant C toggle functionality
-        const cardOnlyToggleVariantC = document.getElementById('cardOnlyToggleVariantC');
-        const cashbackCardVariantC = document.getElementById('cashbackCardVariantC');
-        let isCardOnlyModeVariantC = false;
-
-        function updateVariantCPaymentSplit() {
             let cashbackUsed, cardCharged, cashbackEarned;
 
-            if (isCardOnlyModeVariantC) {
+            if (isCardOnlyMode) {
                 // Card only mode: no cashback used, full amount on card
                 cashbackUsed = 0;
                 cardCharged = total;
@@ -1260,12 +1186,14 @@
             }
 
             const cashbackUsedText = cashbackUsed === 0 ? `$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `-$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            document.getElementById('cashbackUsedVariantC').textContent = cashbackUsedText;
-            document.getElementById('cardChargedVariantC').textContent = `$${cardCharged.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            document.getElementById('cardCashbackEarnedVariantC').textContent = `+$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            cashbackUsedEl.textContent = cashbackUsedText;
+            cardChargedEl.textContent = `$${cardCharged.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-            // Update cashback banner for Variant C
-            document.getElementById('cashbackBannerAmountVariantC').textContent = `$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            // Update card cashback earned banner
+            document.getElementById('cardCashbackEarned').textContent = `+$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            // Update cashback banner for Variant A
+            document.getElementById('cashbackBannerAmountVariantA').textContent = `$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
             // Update summary section
             const cashbackAppliedText = cashbackUsed === 0 ? `$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `-$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -1281,15 +1209,88 @@
             }
         }
 
+        // Toggle functionality for Variant A
+        cardOnlyToggle.addEventListener('click', () => {
+            isCardOnlyMode = !isCardOnlyMode;
+
+            if (isCardOnlyMode) {
+                cardOnlyToggle.classList.add('active');
+                cashbackCard.classList.add('disabled');
+            } else {
+                cardOnlyToggle.classList.remove('active');
+                cashbackCard.classList.remove('disabled');
+            }
+
+            updatePaymentSplit();
+        });
+
+        // Initialize Variant A
+        updatePaymentSplit();
+
+        // Variant C toggle and slider functionality
+        const sliderVariantC = document.getElementById('cashbackSliderVariantC');
+        const cardOnlyToggleVariantC = document.getElementById('cardOnlyToggleVariantC');
+        const cashbackCardVariantC = document.getElementById('cashbackCardVariantC');
+        let isCardOnlyModeVariantC = false;
+
+        function updateVariantCPaymentSplit() {
+            let cashbackUsed, cashbackDisplay, cardCharged, cashbackEarned;
+
+            if (isCardOnlyModeVariantC) {
+                // Card only mode: no cashback used, full amount on card
+                cashbackUsed = 0;
+                cashbackDisplay = availableCashback; // Still show available amount
+                cardCharged = total;
+                cashbackEarned = total * 0.05; // Earn 5% on full amount
+            } else {
+                // Normal mode: apply cashback slider
+                const percentage = sliderVariantC.value / 100;
+                cashbackUsed = availableCashback * percentage;
+                cashbackDisplay = cashbackUsed;
+                cardCharged = total - cashbackUsed;
+                cashbackEarned = cardCharged * 0.05; // Earn 5% on card charged amount
+            }
+
+            const cashbackDisplayText = cashbackUsed === 0 ? `$${cashbackDisplay.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `-$${cashbackDisplay.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('cashbackUsedVariantC').textContent = cashbackDisplayText;
+            document.getElementById('cardChargedVariantC').textContent = `$${cardCharged.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('cardCashbackEarnedVariantC').textContent = `+$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            // Update cashback banner for Variant C
+            document.getElementById('cashbackBannerAmountVariantC').textContent = `$${cashbackEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            // Update summary section
+            const cashbackAppliedText = cashbackUsed === 0 ? `$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `-$${cashbackUsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('cashbackApplied').textContent = cashbackAppliedText;
+            document.getElementById('summaryCardCharged').textContent = `$${cardCharged.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            // Hide/show cash back applied row based on mode or slider value
+            const cashbackAppliedRow = document.getElementById('cashbackAppliedRow');
+            if (cashbackUsed === 0) {
+                cashbackAppliedRow.style.display = 'none';
+            } else {
+                cashbackAppliedRow.style.display = 'flex';
+            }
+
+            // Update slider track
+            sliderVariantC.style.setProperty('--slider-percent', `${sliderVariantC.value}%`);
+        }
+
+        // Slider event for Variant C
+        sliderVariantC.addEventListener('input', updateVariantCPaymentSplit);
+
+        // Toggle functionality for Variant C
         cardOnlyToggleVariantC.addEventListener('click', () => {
             isCardOnlyModeVariantC = !isCardOnlyModeVariantC;
 
             if (isCardOnlyModeVariantC) {
                 cardOnlyToggleVariantC.classList.add('active');
                 cashbackCardVariantC.classList.add('disabled');
+                sliderVariantC.disabled = true;
             } else {
                 cardOnlyToggleVariantC.classList.remove('active');
                 cashbackCardVariantC.classList.remove('disabled');
+                sliderVariantC.disabled = false;
             }
 
             updateVariantCPaymentSplit();
@@ -1308,23 +1309,23 @@
             const variantBActive = document.getElementById('suggestedPaymentUX').classList.contains('active');
 
             if (variantCActive) {
-                // Variant C logic
+                // Variant C logic (now has slider)
                 if (isCardOnlyModeVariantC) {
                     cashbackUsed = 0;
                 } else {
-                    cashbackUsed = availableCashback; // Full cashback applied
+                    const percentage = sliderVariantC.value / 100;
+                    cashbackUsed = availableCashback * percentage;
                 }
             } else if (variantBActive) {
                 // Variant B logic (suggested UX with slider)
                 const percentage = document.getElementById('cashbackSliderSuggested').value / 100;
                 cashbackUsed = availableCashback * percentage;
             } else {
-                // Variant A logic (original UX)
+                // Variant A logic (now toggle-only, no slider)
                 if (isCardOnlyMode) {
                     cashbackUsed = 0;
                 } else {
-                    const percentage = slider.value / 100;
-                    cashbackUsed = availableCashback * percentage;
+                    cashbackUsed = availableCashback; // Full cashback applied
                 }
             }
 
@@ -1345,9 +1346,9 @@
 
     <!-- UX Toggle Tab -->
     <div class="ux-toggle-tab">
-        <button class="ux-toggle-button active" id="originalButton">Variant A</button>
+        <button class="ux-toggle-button" id="originalButton">Variant A</button>
         <button class="ux-toggle-button" id="suggestedButton">Variant B</button>
-        <button class="ux-toggle-button" id="variantCButton">Variant C</button>
+        <button class="ux-toggle-button active" id="variantCButton">Variant C</button>
     </div>
 
     <script>
@@ -1372,7 +1373,7 @@
         if (originalButton && suggestedButton && variantCButton && originalUX && suggestedUX && variantCUX) {
             originalButton.addEventListener('click', () => {
                 console.log('Variant A clicked');
-                originalUX.classList.remove('hidden');
+                originalUX.style.display = 'block';
                 suggestedUX.classList.remove('active');
                 variantCUX.style.display = 'none';
                 originalButton.classList.add('active');
@@ -1387,7 +1388,7 @@
 
             suggestedButton.addEventListener('click', () => {
                 console.log('Variant B clicked');
-                originalUX.classList.add('hidden');
+                originalUX.style.display = 'none';
                 suggestedUX.classList.add('active');
                 variantCUX.style.display = 'none';
                 originalButton.classList.remove('active');
@@ -1402,7 +1403,7 @@
 
             variantCButton.addEventListener('click', () => {
                 console.log('Variant C clicked');
-                originalUX.classList.add('hidden');
+                originalUX.style.display = 'none';
                 suggestedUX.classList.remove('active');
                 variantCUX.style.display = 'block';
                 originalButton.classList.remove('active');
