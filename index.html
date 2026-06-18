@@ -102,10 +102,8 @@
             font-size: 15px;
             font-weight: 600;
             letter-spacing: -0.3px;
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             background: transparent;
         }
@@ -122,12 +120,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: fixed;
+            position: sticky;
             top: 37px;
-            left: 0;
-            right: 0;
             z-index: 999;
             background: transparent;
+            margin-top: -37px;
         }
 
         .header::after {
@@ -136,7 +133,7 @@
             top: -37px;
             left: 0;
             right: 0;
-            height: 150px;
+            height: 100px;
             background: linear-gradient(to bottom,
                 rgba(0, 0, 0, 1) 0%,
                 rgba(0, 0, 0, 0.95) 40%,
@@ -274,7 +271,6 @@
         /* Hero Section */
         .hero-section {
             padding: 24px 20px 32px;
-            margin-top: 109px;
         }
 
         .hero-text {
