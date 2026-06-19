@@ -300,7 +300,6 @@
         /* Product Card */
         .product-card {
             background: #0F0F0F;
-            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             padding: 20px;
             position: relative;
@@ -381,7 +380,6 @@
         /* Cost Breakdown */
         .cost-breakdown {
             background: #0F0F0F;
-            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 24px;
@@ -520,6 +518,7 @@
             background: linear-gradient(135deg, #2a2a2a 0%, #0f0f0f 20%, #1f1f1f 40%, #0a0a0a 60%, #252525 80%, #121212 100%);
             background-size: 400% 400%;
             animation: fadeIn 0.3s ease-out, gradientMove 12s ease-in-out infinite;
+            overflow-y: hidden;
         }
 
         .phone-container.empty-cart::before {
@@ -610,7 +609,7 @@
         <div class="content">
             <!-- Empty State -->
             <div class="empty-state" id="emptyState">
-                <div class="empty-state-title"><span class="muted">Your cart is</span> empty.</div>
+                <div class="empty-state-title"><span class="muted">Your cart is</span> empty</div>
                 <img src="tiers-coins.png" alt="Coins" class="empty-state-icon">
             </div>
 
